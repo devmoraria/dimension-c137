@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rick and Morty — Portal da Dimensão C-137</title>
+  <!-- ÍCONE DO SITE (FAVICON) -->
+  <link rel="icon" type="image/png" href="portal.png">
+  
+  <!-- Fontes Google: Creepster (Logo/Títulos) e Space Grotesk (Textos) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Creepster&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Efeito de Transição Dimensional (Portal Gun) -->
+  <div class="portal-transition" id="portal-transition"></div>
+
+  <!-- Canvas de Fundo de Estrelas Cósmico -->
+  <canvas id="space-canvas"></canvas>
+
+  <!-- Navegação -->
+  <header class="navbar">
+    <div class="container nav-container">
+      <a href="#" class="logo">
+        <span class="logo-text">Rick and Morty</span>
+      </a>
+      <nav class="nav-links">
+        <a href="#sobre">O Universo</a>
+        <a href="#portal-gun">Portal Gun</a>
+        <a href="#personagens">Personagens</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#portal-gun" class="btn btn-portal">Ativar Portal</a>
+    </div>
+  </header>
+
+  <main>
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container hero-content">
+        <div class="hero-text">
+          <span class="badge">DIMENSÃO C-137</span>
+          <h1>Explore o Multiverso Cósmico</h1>
+          <p>
+            Embarque nas viagens interdimensionais mais insanas da galáxia com Rick Sanchez e Morty Smith. Conheça seres alienígenas, realidades alternativas e segredos da Curva Central Finita.
+          </p>
+          <div class="hero-buttons">
+            <a href="#personagens" class="btn btn-portal">Ver Personagens</a>
+            <a href="#sobre" class="btn btn-outline">Saiba Mais</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="portal-ring"></div>
+          <!-- Personagens re-enquadrados dentro do portal -->
+          <div class="character-wrapper">
+            <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Rick Sanchez" class="hero-character rick-img">
+            <img src="https://rickandmortyapi.com/api/character/avatar/2.jpeg" alt="Morty Smith" class="hero-character morty-img">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sobre Section -->
+    <section id="sobre" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Sobre o Multiverso</h2>
+          <p>Tudo o que você precisa saber sobre a franquia e suas viagens interdimensionais.</p>
+        </div>
+
+        <div class="grid-3">
+          <div class="card">
+            <div class="card-image-box">
+              <img src="https://rickandmortyapi.com/api/character/avatar/1.jpeg" alt="Ciência sem limites">
+            </div>
+            <h3>Ciência Sem Limites</h3>
+            <p>De armas de portal a clonagem e naves espaciais feitas de lixo, a genialidade de Rick transcende a física convencional.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-image-box">
+              <img src="https://rickandmortyapi.com/api/character/avatar/242.jpeg" alt="Realidades Infinitas">
+            </div>
+            <h3>Realidades Infinitas</h3>
+            <p>A Curva Central Finita separa os universos onde Rick é o homem mais inteligente das infinitas outras realidades.</p>
+          </div>
+
+          <div class="card">
+            <div class="card-image-box">
+              <img src="https://rickandmortyapi.com/api/character/avatar/118.jpeg" alt="Citadel dos Ricks">
+            </div>
+            <h3>A Citadel dos Ricks</h3>
+            <p>Uma sociedade secreta criada por Ricks de centenas de dimensões para se protegerem do Conselho dos Ricks.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Gerador de Frases / Portal Gun Simulado -->
+    <section id="portal-gun" class="section bg-card">
+      <div class="container text-center">
+        <div class="section-title">
+          <h2>Portal Gun: Interceptador</h2>
+          <p>Dispare a arma de portal para entrar em outra dimensão e ouvir algo bizarro!</p>
+        </div>
+
+        <div class="portal-gun-box">
+          <div class="portal-display" id="quote-display">
+            "Wubba Lubba Dub Dub!" — Rick Sanchez
+          </div>
+          <button class="btn btn-portal btn-lg" id="btn-fire">
+            Disparar Portal Gun
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galeria de Personagens (API Oficial) -->
+    <section id="personagens" class="section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Explorador de Personagens</h2>
+          <p>Dados em tempo real diretamente da base de dados do Multiverso.</p>
+        </div>
+
+        <!-- Filtros e Busca -->
+        <div class="filter-box">
+          <input type="text" id="search-input" placeholder="Buscar por nome do personagem...">
+          
+          <select id="status-filter">
+            <option value="">Todos os Status</option>
+            <option value="alive">Vivo (Alive)</option>
+            <option value="dead">Morto (Dead)</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+
+          <select id="gender-filter">
+            <option value="">Todos os Gêneros</option>
+            <option value="male">Masculino</option>
+            <option value="female">Feminino</option>
+            <option value="genderless">Sem Gênero</option>
+            <option value="unknown">Desconhecido</option>
+          </select>
+        </div>
+
+        <!-- Container da API -->
+        <div class="character-grid" id="characters-container">
+          <div class="loading">Sincronizando com os dados da API...</div>
+        </div>
+
+        <!-- Botão de Paginação -->
+        <div class="text-center" style="margin-top: 40px;">
+          <button id="btn-load-more" class="btn btn-outline btn-lg" style="display: none;">
+            Carregar Mais Personagens
+          </button>
+        </div>
+
+    <!-- Dúvidas Frequentes (FAQ) -->
+    <section id="faq" class="section bg-card">
+      <div class="container container-sm">
+        <div class="section-title">
+          <h2>Perguntas Frequentes</h2>
+        </div>
+
+        <div class="faq-list">
+          <div class="faq-item">
+            <div class="faq-question">O que significa "Wubba Lubba Dub Dub"?</div>
+            <div class="faq-answer">Na língua do povo de Birdperson, a frase se traduz como "Eu estou em grande dor, por favor me ajude".</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">De onde os dados da galeria são carregados?</div>
+            <div class="faq-answer">Eles são requisitados em tempo real da "The Rick and Morty API" oficial usando Fetch API nativo do JavaScript.</div>
+          </div>
+
+          <div class="faq-item">
+            <div class="faq-question">Qual a dimensão original do Rick C-137?</div>
+            <div class="faq-answer">O Rick principal da série pertence originalmente à dimensão C-137, embora resida atualmente em outra realidade após os eventos da 1ª temporada.</div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Modal de Detalhes do Personagem -->
+  <div class="modal" id="char-modal">
+    <div class="modal-content">
+      <span class="modal-close" id="modal-close">&times;</span>
+      <div id="modal-body"></div>
+    </div>
+  </div>
+
+  <!-- Rodapé -->
+  <footer class="footer">
+    <div class="container text-center">
+      <h2 class="logo-text" style="font-size: 2rem; margin-bottom: 16px;">Rick and Morty</h2>
+      <p>Desenvolvido com HTML, CSS e JavaScript puros.</p>
+      <p class="small">&copy; 2026 Rick and Morty Fan Page. Dados via rickandmortyapi.com</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

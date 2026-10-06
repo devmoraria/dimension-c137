@@ -1,0 +1,746 @@
+/* ==========================================
+   RESET & ESTILOS CÓSMICOS
+   ========================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --bg-dark: #050811;
+  --bg-card: rgba(15, 23, 42, 0.75);
+  --border-color: rgba(0, 255, 157, 0.25);
+  
+  --portal-green: #00ff9d;
+  --portal-yellow: #ccff00;
+  --neon-cyan: #00f0ff;
+  
+  --text-main: #f1f5f9;
+  --text-muted: #94a3b8;
+  
+  --font-title: 'Creepster', cursive;
+  --font-body: 'Space Grotesk', sans-serif;
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Background Canvas */
+#space-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ==========================================
+   LAYOUT CONTAINERS
+   ========================================== */
+.container {
+  width: 100%;
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.container-sm {
+  max-width: 720px;
+}
+
+.section {
+  padding: 96px 0;
+}
+
+.bg-card {
+  background-color: var(--bg-card);
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  backdrop-filter: blur(12px);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.section-title h2 {
+  font-family: var(--font-title);
+  font-size: 3.2rem;
+  color: var(--portal-green);
+  letter-spacing: 2px;
+  text-shadow: 0 0 16px rgba(0, 255, 157, 0.4);
+}
+
+.section-title p {
+  color: var(--text-muted);
+  font-size: 1.1rem;
+}
+
+/* ==========================================
+   BOTÕES
+   ========================================== */
+.btn {
+  display: inline-block;
+  padding: 12px 28px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  cursor: pointer;
+  transition: var(--transition);
+  border: 2px solid transparent;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.btn-portal {
+  background: linear-gradient(135deg, var(--portal-green), var(--portal-yellow));
+  color: #050811;
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.4);
+}
+
+.btn-portal:hover {
+  transform: translateY(-2px) scale(1.03);
+  box-shadow: 0 0 30px rgba(0, 255, 157, 0.7);
+}
+
+.btn-outline {
+  border-color: var(--portal-green);
+  color: var(--portal-green);
+  background: rgba(0, 255, 157, 0.05);
+}
+
+.btn-outline:hover {
+  background: rgba(0, 255, 157, 0.15);
+  color: #fff;
+}
+
+.btn-lg {
+  padding: 16px 36px;
+  font-size: 1.05rem;
+}
+
+/* ==========================================
+   NAVEGAÇÃO E LOGO (TEXTO ESTILIZADO)
+   ========================================== */
+.navbar {
+  background: rgba(5, 8, 17, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 80px;
+}
+
+.logo {
+  text-decoration: none;
+}
+
+.logo-text {
+  font-family: var(--font-title);
+  font-size: 2.2rem;
+  color: var(--neon-cyan);
+  letter-spacing: 1.5px;
+  text-shadow: 2px 2px 0px #000, 
+               -1px -1px 0px var(--portal-green), 
+               0 0 15px rgba(0, 240, 255, 0.6);
+  transition: var(--transition);
+}
+
+.logo:hover .logo-text {
+  color: var(--portal-green);
+  text-shadow: 2px 2px 0px #000, 
+               -1px -1px 0px var(--neon-cyan), 
+               0 0 20px rgba(0, 255, 157, 0.8);
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+.nav-links a {
+  color: var(--text-main);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.nav-links a:hover {
+  color: var(--portal-green);
+}
+
+/* ==========================================
+   HERO SECTION & NOVO ENQUADRAMENTO
+   ========================================== */
+.hero {
+  padding: 120px 0 100px;
+}
+
+.hero-content {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.badge {
+  display: inline-block;
+  background: rgba(0, 240, 255, 0.1);
+  border: 1px solid var(--neon-cyan);
+  color: var(--neon-cyan);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  margin-bottom: 20px;
+}
+
+.hero-text h1 {
+  font-size: 3.5rem;
+  line-height: 1.1;
+  margin-bottom: 24px;
+  font-weight: 700;
+}
+
+.hero-text p {
+  color: var(--text-muted);
+  font-size: 1.15rem;
+  margin-bottom: 36px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+}
+
+/* Enquadramento do Portal e Personagens */
+.hero-visual {
+  position: relative;
+  height: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.portal-ring {
+  position: absolute;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--portal-yellow) 0%, var(--portal-green) 50%, transparent 75%);
+  filter: blur(15px);
+  animation: spinPortal 8s linear infinite;
+  box-shadow: 0 0 80px var(--portal-green);
+  z-index: 1;
+}
+
+.character-wrapper {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  z-index: 2;
+}
+
+.hero-character {
+  position: absolute;
+  border-radius: 50%;
+  border: 4px solid var(--bg-dark);
+  box-shadow: 0 0 25px rgba(0, 255, 157, 0.6);
+  object-fit: cover;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.rick-img {
+  width: 170px;
+  height: 170px;
+  top: 20px;
+  left: 10px;
+  z-index: 3;
+}
+
+.morty-img {
+  width: 140px;
+  height: 140px;
+  bottom: 30px;
+  right: 15px;
+  z-index: 2;
+}
+
+.hero-visual:hover .rick-img {
+  transform: scale(1.05) translate(-10px, -10px) rotate(-5deg);
+}
+
+.hero-visual:hover .morty-img {
+  transform: scale(1.05) translate(10px, 10px) rotate(5deg);
+}
+
+@keyframes spinPortal {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==========================================
+   PORTAL GUN EFEITO (IDÊNTICO À SÉRIE)
+   ========================================== */
+.portal-transition {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  
+  /* Tamanho base que mantém a proporção oval/redonda da imagem */
+  width: 120vmin;
+  height: 120vmin;
+  
+  /* Puxa a imagem realista do portal */
+  background-image: url('portal.png');
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  /* Remove qualquer gradiente ou cor de fundo que atrapalhe */
+  background-color: transparent;
+  
+  /* Se a sua imagem do portal tiver fundo preto em vez de transparente, 
+     descomente a linha abaixo para o preto sumir magicamente: */
+  /* mix-blend-mode: screen; */
+  
+  /* Começa minúsculo, invisível e girando no sentido contrário */
+  transform: translate(-50%, -50%) scale(0) rotate(-180deg);
+  z-index: 9999;
+  pointer-events: none;
+  opacity: 0;
+  
+  /* Transição de fechamento do portal */
+  transition: transform 0.6s cubic-bezier(0.6, -0.28, 0.735, 0.045), opacity 0.5s;
+}
+
+.portal-transition.active {
+  /* Gira feito um vórtice (720 graus) e cresce de forma absurda (scale 6)
+     para que o centro do portal "engula" a câmera/tela inteira */
+  transform: translate(-50%, -50%) scale(6) rotate(720deg);
+  opacity: 1;
+  
+  /* Curva de animação que começa lenta e acelera, simulando o pulo na dimensão */
+  transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+}
+
+/* ==========================================
+   CARDS DE CONTEÚDO
+   ========================================== */
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 16px;
+  padding: 24px;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  border-color: var(--portal-green);
+  box-shadow: 0 8px 30px rgba(0, 255, 157, 0.2);
+}
+
+.card-image-box {
+  width: 100%;
+  height: 180px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  border: 1px solid var(--border-color);
+}
+
+.card-image-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: var(--transition);
+}
+
+.card:hover .card-image-box img {
+  transform: scale(1.08);
+}
+
+.card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   GALERIA DE PERSONAGENS & FILTROS
+   ========================================== */
+.filter-box {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.filter-box input,
+.filter-box select {
+  background: rgba(15, 23, 42, 0.9);
+  border: 1px solid var(--border-color);
+  color: var(--text-main);
+  padding: 14px 18px;
+  border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  outline: none;
+  transition: var(--transition);
+}
+
+.filter-box input:focus,
+.filter-box select:focus {
+  border-color: var(--portal-green);
+  box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
+}
+
+.filter-box input {
+  flex: 1;
+  min-width: 260px;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  gap: 24px;
+}
+
+.char-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 14px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.char-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--neon-cyan);
+  box-shadow: 0 0 20px rgba(0, 240, 255, 0.25);
+}
+
+.char-card img {
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.char-info {
+  padding: 18px;
+}
+
+.char-info h4 {
+  font-size: 1.1rem;
+  margin-bottom: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.status-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.status-alive { background: rgba(0, 255, 157, 0.15); color: var(--portal-green); }
+.status-dead { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
+.status-unknown { background: rgba(148, 163, 184, 0.15); color: var(--text-muted); }
+
+.loading {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 48px;
+  color: var(--portal-green);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* ==========================================
+   FAQ ACCORDION
+   ========================================== */
+.faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.faq-item {
+  background: rgba(5, 8, 17, 0.8);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition);
+}
+
+.faq-question {
+  padding: 20px 24px;
+  font-weight: 700;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-question::after {
+  content: '';
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid var(--portal-green);
+  border-bottom: 2px solid var(--portal-green);
+  transform: rotate(45deg);
+  transition: var(--transition);
+}
+
+.faq-item.active .faq-question::after {
+  transform: rotate(-135deg);
+}
+
+.faq-answer {
+  display: none;
+  padding: 0 24px 20px;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+.faq-item.active .faq-answer {
+  display: block;
+}
+
+/* ==========================================
+   MODAL DE DETALHES
+   ========================================== */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  justify-content: center;
+  align-items: center;
+  padding: 24px;
+}
+
+.modal.active {
+  display: flex;
+}
+
+.modal-content {
+  background: var(--bg-card);
+  border: 2px solid var(--portal-green);
+  border-radius: 20px;
+  max-width: 480px;
+  width: 100%;
+  padding: 32px;
+  position: relative;
+  box-shadow: 0 0 40px rgba(0, 255, 157, 0.3);
+}
+
+.modal-close {
+  position: absolute;
+  top: 16px;
+  right: 20px;
+  font-size: 2rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  line-height: 1;
+}
+
+.modal-close:hover {
+  color: var(--portal-green);
+}
+
+.modal-detail {
+  text-align: center;
+}
+
+.modal-detail img {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid var(--portal-green);
+  margin-bottom: 20px;
+  box-shadow: 0 0 20px rgba(0, 255, 157, 0.3);
+}
+
+.modal-detail h2 {
+  color: var(--portal-green);
+  margin-bottom: 12px;
+}
+
+.modal-detail p {
+  color: var(--text-muted);
+  margin-bottom: 6px;
+  font-size: 0.95rem;
+}
+
+/* ==========================================
+   RODAPÉ
+   ========================================== */
+.footer {
+  border-top: 1px solid var(--border-color);
+  padding: 48px 0 32px;
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  background: rgba(5, 8, 17, 0.95);
+}
+
+.footer .small {
+  font-size: 0.8rem;
+  margin-top: 8px;
+}
+
+/* ==========================================
+   RESPONSIVIDADE (TABLETS E CELULARES)
+   ========================================== */
+
+/* Telas médias (Tablets e Laptops pequenos) */
+@media (max-width: 992px) {
+  .hero-content {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 40px;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .nav-links {
+    display: none; /* Esconde os links para não poluir o cabeçalho no mobile */
+  }
+
+  /* Ajusta o tamanho da área do portal no topo para não vazar a tela */
+  .hero-visual {
+    height: 300px;
+  }
+
+  .portal-ring {
+    width: 250px;
+    height: 250px;
+  }
+
+  .rick-img {
+    width: 130px;
+    height: 130px;
+  }
+
+  .morty-img {
+    width: 110px;
+    height: 110px;
+  }
+
+  .section {
+    padding: 64px 0;
+  }
+
+  .section-title h2 {
+    font-size: 2.5rem;
+  }
+}
+
+/* Telas pequenas (Celulares) */
+@media (max-width: 768px) {
+  .grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-text h1 {
+    font-size: 2.2rem;
+  }
+
+  .portal-display {
+    font-size: 1.5rem;
+    min-height: 80px;
+    padding: 20px;
+  }
+
+  /* Empilha os filtros de busca para ficarem com largura total no celular */
+  .filter-box {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .filter-box input,
+  .filter-box select {
+    width: 100%;
+  }
+
+  .btn-portal.btn-lg {
+    width: 100%;
+  }
+
+  .logo-text {
+    font-size: 1.6rem;
+  }
+
+  /* No mobile, o portal precisa crescer ainda mais para engolir a tela fina e comprida */
+  .portal-transition.active {
+    transform: translate(-50%, -50%) scale(10) rotate(720deg);
+  }
+}
+
+/* Telas muito pequenas (Celulares menores) */
+@media (max-width: 480px) {
+  .hero-text h1 {
+    font-size: 1.8rem;
+  }
+  
+  .hero-text p {
+    font-size: 1rem;
+  }
+
+  .modal-content {
+    padding: 24px 16px;
+  }
+}
