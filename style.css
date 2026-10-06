@@ -24,6 +24,12 @@
   --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+button,
+input,
+select {
+  font-family: inherit;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -197,6 +203,39 @@ body {
   color: var(--portal-green);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.lang-btn {
+  background: rgba(0, 240, 255, 0.08);
+  border: 1px solid var(--neon-cyan);
+  color: var(--text-muted);
+  padding: 8px 14px;
+  border-radius: 50px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.lang-btn:hover {
+  background: rgba(0, 240, 255, 0.18);
+  box-shadow: 0 0 14px rgba(0, 240, 255, 0.4);
+}
+
+#lang-current {
+  color: var(--neon-cyan);
+}
+
+.btn-nav {
+  padding: 10px 22px;
+  font-size: 0.85rem;
+}
+
 /* ==========================================
    HERO SECTION & NOVO ENQUADRAMENTO
    ========================================== */
@@ -317,8 +356,8 @@ body {
   left: 50%;
   
   /* Tamanho base que mantém a proporção oval/redonda da imagem */
-  width: 120vmin;
-  height: 120vmin;
+  width: 100vmin;
+  height: 122vmin; /* proporção do portal.png (451x553) */
   
   /* Puxa a imagem realista do portal */
   background-image: url('portal.png');
@@ -351,6 +390,33 @@ body {
   
   /* Curva de animação que começa lenta e acelera, simulando o pulo na dimensão */
   transition: transform 1.5s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.2s;
+}
+
+/* ==========================================
+   PORTAL GUN - CAIXA DE CITAÇÃO
+   ========================================== */
+.portal-gun-box {
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.portal-display {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 120px;
+  margin-bottom: 32px;
+  padding: 28px 32px;
+  background: rgba(5, 8, 17, 0.8);
+  border: 1px dashed var(--portal-green);
+  border-radius: 16px;
+  color: var(--portal-green);
+  font-size: 1.6rem;
+  font-weight: 600;
+  line-height: 1.4;
+  text-align: center;
+  text-shadow: 0 0 12px rgba(0, 255, 157, 0.35);
+  box-shadow: inset 0 0 30px rgba(0, 255, 157, 0.08);
 }
 
 /* ==========================================
@@ -436,6 +502,15 @@ body {
   box-shadow: 0 0 10px rgba(0, 255, 157, 0.3);
 }
 
+.filter-box select option {
+  background: #0f172a;
+  color: var(--text-main);
+}
+
+.filter-box input::placeholder {
+  color: var(--text-muted);
+}
+
 .filter-box input {
   flex: 1;
   min-width: 260px;
@@ -482,6 +557,10 @@ body {
 
 .status-badge {
   display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   font-size: 0.75rem;
   font-weight: 700;
   padding: 4px 10px;
@@ -492,6 +571,11 @@ body {
 .status-alive { background: rgba(0, 255, 157, 0.15); color: var(--portal-green); }
 .status-dead { background: rgba(239, 68, 68, 0.15); color: #ef4444; }
 .status-unknown { background: rgba(148, 163, 184, 0.15); color: var(--text-muted); }
+
+#btn-load-more:disabled {
+  opacity: 0.6;
+  cursor: wait;
+}
 
 .loading {
   grid-column: 1 / -1;
@@ -600,6 +684,11 @@ body {
   color: var(--portal-green);
 }
 
+#modal-body {
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
 .modal-detail {
   text-align: center;
 }
@@ -638,6 +727,24 @@ body {
 .footer .small {
   font-size: 0.8rem;
   margin-top: 8px;
+}
+
+/* ==========================================
+   ACESSIBILIDADE
+   ========================================== */
+:focus-visible {
+  outline: 2px solid var(--neon-cyan);
+  outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .portal-ring {
+    animation: none;
+  }
 }
 
 /* ==========================================
@@ -718,6 +825,10 @@ body {
 
   .btn-portal.btn-lg {
     width: 100%;
+  }
+
+  .btn-nav {
+    display: none; /* o botão de idioma já ocupa o espaço da navbar */
   }
 
   .logo-text {
